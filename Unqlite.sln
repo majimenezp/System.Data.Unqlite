@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Data.Unqlite", "System.Data.Unqlite\System.Data.Unqlite.csproj", "{52BBC9B6-FCE7-4DE0-AC2A-488921D26640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTestProject1\UnitTesting.csproj", "{D1DD5238-F57E-4306-AE27-1A94EFE11A8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52BBC9B6-FCE7-4DE0-AC2A-488921D26640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52BBC9B6-FCE7-4DE0-AC2A-488921D26640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52BBC9B6-FCE7-4DE0-AC2A-488921D26640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52BBC9B6-FCE7-4DE0-AC2A-488921D26640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1DD5238-F57E-4306-AE27-1A94EFE11A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DD5238-F57E-4306-AE27-1A94EFE11A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DD5238-F57E-4306-AE27-1A94EFE11A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DD5238-F57E-4306-AE27-1A94EFE11A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
