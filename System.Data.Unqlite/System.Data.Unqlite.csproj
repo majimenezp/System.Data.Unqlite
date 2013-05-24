@@ -46,8 +46,10 @@
     <Compile Include="Interop\Tracer.cs" />
     <Compile Include="Interop\UnmanagedLibrary.cs" />
     <Compile Include="Interop\UnqliteDBProxy.cs" />
+    <Compile Include="KeyValueCursor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnqliteDB.cs" />
+    <Compile Include="Unqlite_Cursor.cs" />
     <Compile Include="Unqlite_Open.cs" />
   </ItemGroup>
   <ItemGroup>

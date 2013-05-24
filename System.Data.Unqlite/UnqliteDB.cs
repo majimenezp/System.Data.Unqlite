@@ -24,7 +24,8 @@ namespace System.Data.Unqlite
             var proxy = new UnqliteDBProxy();
             return new UnqliteDB(proxy);
         }
-        public bool Open(string fileName,Unqlite_Open iMode)
+
+        public bool Open(string fileName, Unqlite_Open iMode)
         {
             return dbProxy.Open(fileName, iMode);
         }
@@ -34,9 +35,28 @@ namespace System.Data.Unqlite
             return dbProxy.SaveKeyValue(Key, Value);
         }
 
+        public bool SaveKeyBinaryValue(string Key, byte[] Value)
+        {
+            return dbProxy.SaveKeyValue(Key, Value);
+        }
+
         public string GetKeyValue(string Key)
         {
             return dbProxy.GetKeyValue(Key);
+        }
+        public byte[] GetKeyBinaryValue(string Key)
+        {
+            return dbProxy.GetKeyBinaryValue(Key);
+        }
+
+        public void GetKeyValue(string Key, Action<string> action)
+        {
+            dbProxy.GetKeyValue(Key, action);
+        }
+
+        public void GetKeyBinaryValue(string Key, Action<byte[]> action)
+        {
+            dbProxy.GetKeyBinaryValue(Key, action);
         }
 
         public void Close()
@@ -44,6 +64,15 @@ namespace System.Data.Unqlite
             dbProxy.Close();
         }
 
-        
+        public KeyValueCursor CreateKeyValueCursor()
+        {
+            return new KeyValueCursor(dbProxy,true);
+        }
+
+        public KeyValueCursor CreateReverseKeyValueCursor()
+        {
+            return new KeyValueCursor(dbProxy,false);
+        }
+
     }
 }
