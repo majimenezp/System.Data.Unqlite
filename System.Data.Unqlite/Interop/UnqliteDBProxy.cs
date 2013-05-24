@@ -266,5 +266,11 @@ namespace System.Data.Unqlite.Interop
             byte[] keyBytes = Encoding.ASCII.GetBytes(key);
             Libunqlite.unqlite_kv_cursor_seek(cursor, keyBytes, keyBytes.Length, (int)seekMode);
         }
+
+        internal bool DeleteEntry(IntPtr cursor)
+        {
+            int res=Libunqlite.unqlite_kv_cursor_delete_entry(cursor);
+            return res == 0;
+        }
     }
 }

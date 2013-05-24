@@ -40,8 +40,8 @@ namespace System.Data.Unqlite.Interop
             unqlite_kv_cursor_data = NativeLib.GetUnmanagedFunction<Unqlite_kv_cursor_data>("unqlite_kv_cursor_data");
             unqlite_kv_cursor_data_callback = NativeLib.GetUnmanagedFunction<Unqlite_kv_cursor_data_callback>("unqlite_kv_cursor_data_callback");
             unqlite_kv_cursor_seek = NativeLib.GetUnmanagedFunction<Unqlite_kv_cursor_seek>("unqlite_kv_cursor_seek");
-            
-            
+
+            unqlite_kv_cursor_delete_entry = NativeLib.GetUnmanagedFunction<Unqlite_kv_cursor_delete_entry>("unqlite_kv_cursor_delete_entry");
         }
 
         public delegate int xConsumer(IntPtr dataPointer, UInt64 iDataLen, byte[] pUserData);
@@ -121,6 +121,10 @@ namespace System.Data.Unqlite.Interop
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
         public delegate int Unqlite_kv_cursor_seek(IntPtr pCursor, byte[] Key, int Keylen,int SeekMode);
         public static Unqlite_kv_cursor_seek unqlite_kv_cursor_seek;
+
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+        public delegate int Unqlite_kv_cursor_delete_entry(IntPtr pCursor);
+        public static Unqlite_kv_cursor_delete_entry unqlite_kv_cursor_delete_entry;
 
     }
 }

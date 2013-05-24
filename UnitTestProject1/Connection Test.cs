@@ -7,7 +7,7 @@ namespace UnitTesting
     [TestClass]
     public class Connection_Testing
     {
-        const string databaseName = "test1.db";
+        const string databaseName = ":mem:";
         [TestCleanup]
         public void Test_DeleteDB()
         {
@@ -162,6 +162,27 @@ namespace UnitTesting
                     cursor.Seek("test1", Unqlite_Cursor_Seek.Match_GE);
                     string value = cursor.GetValue();
                     Assert.IsTrue(value == "hello world 1");
+                }
+            }
+            db.Close();
+        }
+
+        [TestMethod]
+        public void Test_KeyValue_Cursor_Seek_Delete()
+        {
+            UnqliteDB db = UnqliteDB.Create();
+            var res = db.Open(databaseName, Unqlite_Open.CREATE);
+            for (int i = 0; i < 20; i++)
+            {
+                db.SaveKeyValue("test" + (i + 1).ToString(), "hello world " + (i + 1).ToString());
+            }
+            using (var cursor = db.CreateKeyValueCursor())
+            {
+                if (cursor.Read())
+                {
+                    cursor.Seek("test4", Unqlite_Cursor_Seek.Match_GE);
+                    bool deleted=cursor.Delete();
+                    Assert.IsTrue(deleted);
                 }
             }
             db.Close();

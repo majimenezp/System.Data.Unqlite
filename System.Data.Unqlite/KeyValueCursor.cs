@@ -108,5 +108,10 @@ namespace System.Data.Unqlite
         {
             dbProxy.SeekKey(cursor, key, seekMode);
         }
+
+        public bool Delete()
+        {
+            return dbProxy.DeleteEntry(cursor);
+        }
     }
 }
